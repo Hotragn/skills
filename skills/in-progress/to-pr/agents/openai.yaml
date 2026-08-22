@@ -1,0 +1,5 @@
+interface:
+  display_name: "To PR"
+  short_description: "Open a PR written from the spec"
+policy:
+  allow_implicit_invocation: false
