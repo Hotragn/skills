@@ -23,6 +23,7 @@ Look at the current repo to understand its starting state. Read whatever exists;
 - `git remote -v` and `.git/config`: is this a GitHub repo? Which one?
 - `AGENTS.md` and `CLAUDE.md` at the repo root: does either exist? Is there already an `## Agent skills` section in either?
 - `GLOSSARY.md` and `GLOSSARY-MAP.md` at the repo root
+- `CONTEXT.md` and `CONTEXT-MAP.md` at the repo root: the names those two files had before v1.3.0
 - `docs/adr/` and any `src/*/docs/adr/` directories
 - `docs/agents/`: does this skill's prior output already exist?
 - `.scratch/`: a sign that a local-markdown issue tracker convention is already in use
@@ -59,6 +60,8 @@ The defaults are the five canonical roles, each label string equal to its name: 
 **Section C: Domain docs.** Default to **single-context** (one `GLOSSARY.md` + `docs/adr/` at the repo root). This fits almost every repo; write it without asking.
 
 Offer **multi-context** (a root `GLOSSARY-MAP.md` pointing to per-context `GLOSSARY.md` files) only when exploration found monorepo signals. Then confirm which layout they want.
+
+If exploration found a `CONTEXT.md` or `CONTEXT-MAP.md`, the repo predates the rename. Before writing anything, offer to `git mv` each one to its `GLOSSARY` name, along with every per-context `CONTEXT.md` the map points at, and to rewrite the old names in `docs/agents/domain.md`. The other skills look only for the new names, so an unmoved file is silently ignored and `domain-modeling` starts a second glossary beside it.
 
 ### 3. Confirm and edit
 
